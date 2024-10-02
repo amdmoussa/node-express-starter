@@ -1,0 +1,35 @@
+{
+  "name": "express-starter",
+  "version": "1.0.0",
+  "description": "A basic Express Restful API to quick start your Own project",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon --env-file=.env server.js",
+    "dev": "nodemon --env-file=.env server.js",
+    "prod": "node --env-file=.env server",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevSpagette/node-express-starter.git"
+  },
+  "author": "Ahmed MOUSSA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevSpagette/node-express-starter/issues"
+  },
+  "homepage": "https://github.com/DevSpagette/node-express-starter#readme",
+  "dependencies": {
+    "express": "^4.21.0",
+    "helmet": "^8.0.0",
+    "mongoose": "^8.7.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "eslint": "^9.11.1",
+    "eslint-plugin-sort-requires": "^2.1.0",
+    "globals": "^15.10.0"
+  }
+}
