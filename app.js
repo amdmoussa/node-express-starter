@@ -2,10 +2,15 @@ const config = require('./config/config');
 const constants = require('./config/constants');
 const express = require('express');
 const helmet = require('helmet');
+const mongoose = require('mongoose');
 const morgan = require('morgan');
 
 const app = express();
-const userRoutes = require('./src/routes/user/user.route.js');
+
+const userRoutes = require('./src/routes/user.route.js');
+
+// MARK: DB connection
+mongoose.connect(config.DB_URI);
 
 // MARK: Middleware
 app.use(helmet());

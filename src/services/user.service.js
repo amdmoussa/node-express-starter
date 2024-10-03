@@ -1,4 +1,4 @@
-const User = require('../../models/user/user.model');
+const User = require('../models/user.model');
 
 class UserService {
     async createUser(data) {
@@ -9,6 +9,10 @@ class UserService {
 
     async getAllUsers() {
         return await User.find({});
+    }
+
+    async getUserByEmail(email) {
+        return await User.findOne({ email });
     }
 
     async getUserById(userId) {
