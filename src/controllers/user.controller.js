@@ -43,13 +43,12 @@ const login = async (req, res) => {
             return sendErrorResponse(res, 401, ERROR_MESSAGES.INVALID_PASSWORD);
         }
 
-        const token = jwt.sign(
-            { id: user._id },
-            process.env.JWT_SECRET,
-            { expiresIn: '3d' }
-        );
+        const token = jwtSign({
+            id: user._id,
+            username: user.username
+        });
 
-        sendSuccessResponse(res, 200, SUCCESS_MESSAGES.USER_LOGGED_IN, { token });
+        sendSuccessResponse(res, 200, SUCCESS_MESSAGES.USER_LOGGED_IN, { token, username: user.username, email: user.email });
     } catch (error) {
         sendErrorResponse(res, 500, ERROR_MESSAGES.SERVER_ERROR, error);
     }
@@ -108,7 +107,7 @@ const deleteUser = async (req, res) => {
 };
 
 const jwtSign = (payload) => {
-    return jwt.sign(payload, config.JWT_SECRET, { expiresIn: '3d' });
+    return jwt.sign(payload, config.JWT_SECRET, { expiresIn: '7d' });
 };
 
 module.exports = {
